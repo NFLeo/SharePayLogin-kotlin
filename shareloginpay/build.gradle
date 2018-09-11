@@ -2,6 +2,17 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'com.novoda.bintray-release'
+publish {
+    repoName = 'ShareLoginPay-Kotlin'
+    userOrg = 'nfleo'//bintray.com用户名
+    groupId = 'com.nfleo'//jcenter上的路径
+    artifactId = 'ShareLoginPay-Kotlin'//项目名称
+    publishVersion = '1.0.0'//版本号
+    desc = 'this is for test'
+    website = 'https://github.com/NFLeo/ShareLoginPay-Kotlin'
+}
+
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
