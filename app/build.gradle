@@ -18,10 +18,28 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    signingConfigs {
+        config {
+            storeFile file("../keystore.jks")
+            storePassword "leo1234"
+            keyAlias "leo1234"
+            keyPassword "leo1234"
+        }
+    }
+
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled false          //打开混淆
+            shrinkResources false        //打开资源压缩
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
         }
     }
 }
