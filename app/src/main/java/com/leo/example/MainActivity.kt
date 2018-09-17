@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.Toast
-import com.leo.simple.R
 import com.leo.shareloginpay.ShareLoginConfig
 import com.leo.shareloginpay.ShareLoginManager
 import com.leo.shareloginpay.login.LoginListener
@@ -16,15 +15,15 @@ import com.leo.shareloginpay.pay.*
 import com.leo.shareloginpay.share.ShareListener
 import com.leo.shareloginpay.share.SharePlatform
 import com.leo.shareloginpay.share.ShareUtil
+import com.leo.simple.R
 import kotlinx.android.synthetic.main.activity_main.*
-import java.security.AccessController.getContext
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
-    private var APP_ID = "wx41592d9564208b37"
+    private var APP_ID = "wx1738b94ca2fa415e"
     private var APP_SECRET = "XXXXXXX"
 
-    var mLoginListener = object : LoginListener() {
+    private var mLoginListener = object : LoginListener() {
         override fun loginSuccess(result: LoginResult) {
             Toast.makeText(this@MainActivity, "登陆成功 " + result.userInfo?.nickname, Toast.LENGTH_SHORT).show()
         }
@@ -38,7 +37,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    var mPayListener = object : PayListener() {
+    private var mPayListener = object : PayListener() {
         override fun paySuccess() {
             Toast.makeText(this@MainActivity, "支付成功", Toast.LENGTH_SHORT).show()
         }
@@ -52,7 +51,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    var mShareListener = object : ShareListener() {
+    private var mShareListener = object : ShareListener() {
         override fun shareSuccess() {
             Toast.makeText(this@MainActivity, "分享成功", Toast.LENGTH_SHORT).show()
         }
